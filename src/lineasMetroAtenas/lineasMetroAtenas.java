@@ -14,7 +14,7 @@ import es.upm.aedlib.graph.Vertex;
 
 public class lineasMetroAtenas {
 	
-	public static ArrayList<estaciones> listaEstaciones = new ArrayList<estaciones>();
+	public static ArrayList<estacion> listaEstaciones = new ArrayList<estacion>();
 
 	public static String[] listaEstaciones() {
 		String[] res=new String[84];
@@ -39,7 +39,7 @@ public class lineasMetroAtenas {
 		return null;
 	}
 
-   public static void algoritmoAEstrella(estaciones estacionInicio, estaciones estacionDestino) {
+   public static void algoritmoAEstrella(estacion estacionInicio, estacion estacionDestino) {
 	   
    }
    

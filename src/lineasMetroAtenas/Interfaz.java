@@ -69,7 +69,7 @@ public class Interfaz extends JFrame implements ActionListener {
 		     
 				
 		        // Lista para elegir estaci�n origen
-				listaEstaciones = lineasMetroAtenas.listaEstaciones(listaEstaciones);
+				listaEstaciones = lineasMetroAtenas.listaEstaciones();
 				jComboBoxOrigen = new javax.swing.JComboBox<>();
 				jComboBoxOrigen.setBounds(630, 30, 150, 30);
 				jComboBoxOrigen.setModel(new javax.swing.DefaultComboBoxModel<>(listaEstaciones));
