@@ -1,0 +1,61 @@
+---Tiempo de cada parada lineas de metro Atenas:
+
+--Linea 1
+Piraeus -> Faliro: 3mins
+Faliro -> Moschato: 3mins
+Moschato -> Kallithea: 3mins
+Kallithea -> Tavros: 1mins
+Tavros -> Petralona: 2mins
+Petralona -> Thisio: 3mins
+Thisio -> Monastiraki: 1mins
+Monastiraki -> Omonoia: 3mins
+Omonoia -> Viktoria: 2mins
+Viktoria -> Attiki: 3mins
+Attiki -> Aghios Nikolaos: 2mins
+Aghios Nikolaos -> Kato Patissia: 1mins
+Kato Patissia -> Aghios Eleftherios: 2mins
+Aghios Eleftherios -> Ano Patissia: 2mins
+Ano Patissia -> Perissos: 2mins
+Perissos -> Pefkakia: 2mins
+Pefkakia -> Nea Ionia: 1mins
+Nea Ionia -> Iraklio: 3mins
+Iraklio -> Irini: 2mins
+Irini -> Neratziotissa: 2mins
+Neratziotissa -> Maroussi: 3mins
+Maroussi -> Kat: 3mins
+Kat -> Kifissia: 2mins
+
+--Linea2
+Aghios Antonios -> Sepolia: 2mins
+Sepolia -> Attiki: 1mins
+Attiki -> Larissa Station: 2mins
+Larissa Station -> Metaxourghio: 1mins
+Metaxourghio -> Omonoia: 1mins
+Omonoia -> Panepitimio: 2mins
+Panepitimio -> Syntagma: 2mins
+Syntagma -> Akropoli: 1mins
+Akropoli -> Sygrou: 2mins
+Sygrou -> Neos Kosmos: 1mins
+Neos Kosmos -> Aghios Ioannis: 2mins
+Aghios Ioannis -> Dafni: 1mins
+Dafni -> Aghios Dimitrios: 1mins
+
+--Linea3
+Egaleo-> Eleonas: 2mins
+Eleonas -> Kerameikos: 2mins
+Kerameikos -> Monastiraki: 2mins
+Monastiraki -> Syntagma: 2mins
+Syntagma -> Evangelismos: 2mins
+Evangelismos -> Megaro Moussikis: 1mins
+Megaro Moussikis -> Ambelokipi: 1mins
+Ambelokipi -> Panormou: 2mins
+Panormou -> Katehaki: 2mins
+Katehaki -> Ethniki Amyna: 1mins
+Ethniki Amyna -> Holargos: 2mins
+Holargos -> Nomismatokopio: 2mins
+Nomismatokopio -> Aghia Paraskevi: 1mins
+Aghia Paraskevi -> Halandri: 2mins
+Halandri -> Pallini: ??mins
+Pallini -> Paiania: ??mins
+Paiania -> Koropi: ??mins
+Koropi -> Aeropueto: ??mins
