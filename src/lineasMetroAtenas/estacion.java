@@ -3,7 +3,7 @@ package lineasMetroAtenas;
 public class estacion{
 	public final String estacion;
 	public double gValor;
-	public final double hValorMin;
+	public double hValorMin;
 	public double fValor = 0;
 	public estacion parent;
 	public int linea;
@@ -15,6 +15,10 @@ public class estacion{
 		hValorMin = hMin;
 		this.CoorX = CoorX;
 		this.CoorY = CoorY;
+	}
+
+	public void sethMin(double hMin){
+		hValorMin = hMin;
 	}
 
 	public String getEstacion(){
