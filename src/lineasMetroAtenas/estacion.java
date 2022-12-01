@@ -40,4 +40,8 @@ public class Estacion{
 	public int getCoorY(){
 		return  this.CoorY;
 	}
+
+	public String toString(){
+		return this.getEstacion() + ", " + this.getLinea() + ", " + this.getDistancia() + ", " + this.getCoorX() + this.getCoorY();
+	}
 }
