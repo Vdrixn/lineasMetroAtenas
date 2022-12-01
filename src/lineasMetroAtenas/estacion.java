@@ -5,7 +5,6 @@ public class estacion{
 	public double gValor;
 	public final double hValorMin;
 	public double fValor = 0;
-	public trayecto[] adjacencies;
 	public estacion parent;
 	public int linea;
 	public int CoorX, CoorY;
@@ -20,7 +19,6 @@ public class estacion{
 
 	public String getEstacion(){
 		return this.estacion;
-		linea =8;
 	}
 
 	public double getDistancia(){
