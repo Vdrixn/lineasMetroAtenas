@@ -1,4 +1,4 @@
-package lineasMetroAtenas;
+package src.lineasMetroAtenas;
 
 import java.awt.Color;
 import java.awt.Dimension;
@@ -25,10 +25,10 @@ import javax.swing.text.StyledDocument;
 public class Interfaz extends JFrame implements ActionListener {
 	private static final long serialVersionUID = 1L;
 	private JButton botonAccion;
-	private ImageIcon mapa = new ImageIcon(getClass().getResource("/Imagenes/MapaAtenas.jpg"));
-	private ImageIcon puntoSalida = new ImageIcon(getClass().getResource("/Imagenes/salida.png"));
-	private ImageIcon puntoDestino = new ImageIcon(getClass().getResource("/Imagenes/destino.png"));
-	private ImageIcon lineas = new ImageIcon(getClass().getResource("/Imagenes/punto.png"));
+	private ImageIcon mapa = new ImageIcon(getClass().getResource("/src/Imagenes/MapaAtenas.jpg"));
+	private ImageIcon puntoSalida = new ImageIcon(getClass().getResource("/src/Imagenes/salida.png"));
+	private ImageIcon puntoDestino = new ImageIcon(getClass().getResource("/src/Imagenes/destino.png"));
+	private ImageIcon lineas = new ImageIcon(getClass().getResource("/src/Imagenes/punto.png"));
     private JLabel planoFondo;
     
     private javax.swing.JComboBox<String> jComboBoxOrigen;

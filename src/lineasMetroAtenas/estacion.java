@@ -1,4 +1,4 @@
-package lineasMetroAtenas;
+package src.lineasMetroAtenas;
 
 public class Estacion{
 	public final String Estacion;

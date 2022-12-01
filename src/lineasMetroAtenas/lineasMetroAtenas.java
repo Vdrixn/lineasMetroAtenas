@@ -1,4 +1,4 @@
-package lineasMetroAtenas;
+package src.lineasMetroAtenas;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -23,7 +23,7 @@ public class lineasMetroAtenas {
 	public static Estacion[] listaEstaciones() throws FileNotFoundException, IOException {
 		Estacion[] res = new Estacion[54];
 		String linea;
-		FileReader f = new FileReader(new File("Estaciones.txt")); 
+		FileReader f = new FileReader(new File("src/lineasMetroAtenas/Data/Estaciones.txt")); 
         BufferedReader b = new BufferedReader(f);
 		int i = 0;
 		while((linea = b.readLine()) != null){
