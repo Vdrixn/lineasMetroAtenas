@@ -5,7 +5,6 @@ public class Estacion {
 	public double gValor;
 	public final double hValorMin;
 	public double fValor = 0;
-	public trayecto[] adjacencies;
 	public Estacion parent;
 	public int linea;
 	public int CoorX, CoorY;
