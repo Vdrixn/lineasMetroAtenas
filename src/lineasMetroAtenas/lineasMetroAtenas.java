@@ -1,15 +1,15 @@
-package src.lineasMetroAtenas;
+package lineasMetroAtenas;
 
 import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.Scanner;
-
-import javax.swing.text.html.StyleSheet;
 
 import es.upm.aedlib.graph.Graph;
 import es.upm.aedlib.graph.UndirectedAdjacencyListGraph;
@@ -23,7 +23,7 @@ public class lineasMetroAtenas {
 	public static Estacion[] listaEstaciones() throws FileNotFoundException, IOException {
 		Estacion[] res = new Estacion[54];
 		String linea;
-		FileReader f = new FileReader(new File("src/lineasMetroAtenas/Data/Estaciones.txt")); 
+		FileReader f = new FileReader(new File("C:\\Users\\ruben\\OneDrive\\Documentos\\Universidad\\Quinto cuatri\\IA\\lineasMetroAtenas\\src\\datos\\Estaciones.txt")); 
         BufferedReader b = new BufferedReader(f);
 		int i = 0;
 		while((linea = b.readLine()) != null){
@@ -35,6 +35,27 @@ public class lineasMetroAtenas {
 		return res;
 	}
 
+	public static void ordenarEstacionesAlfabeticamente(String lista[]){
+		for (int i = 0; i < (lista.length - 1); i++) {
+			for (int j = i + 1; j < lista.length; j++) {
+				if (lista[i].compareToIgnoreCase(lista[j]) > 0) {
+					String aux = lista[i];
+					lista[i] = lista[j];
+					lista[j] = aux;
+
+				}
+			}
+		}
+    }
+	public static String[] nombreEstaciones(Estacion[] listaEstaciones) {
+		String[] estaciones = new String[54];
+		for (int i = 0; i < listaEstaciones.length; i++) {
+			estaciones[i] = listaEstaciones[i].getEstacion();
+		}
+		ordenarEstacionesAlfabeticamente(estaciones);
+		return estaciones;
+	}
+	
 	public static Recorrido ProcesaPeticion(String EstacionOrigen, String EstacionDestino) {
 
 		return null;
@@ -60,33 +81,30 @@ public class lineasMetroAtenas {
 	public static void main(String[] args) throws IOException {
 		Interfaz pantalla = new Interfaz();
 		pantalla.setVisible(true);
+		System.out.println(listaEstaciones);
 		UndirectedGraph<Estacion, Integer> g = new UndirectedAdjacencyListGraph<Estacion, Integer>();
 		Estacion[] estaciones = listaEstaciones();
 		for(int i=0; i<estaciones.length;i++){
 			System.out.println(estaciones[i].toString());
 		}
-		
+//		for (int i = 0; i < estaciones.length; i++) {
+//			g.insertVertex(estaciones[i]);
+//		}
 
-		// for (int i = 0; i < estaciones.length; i++) {
-		// 	g.insertVertex(estaciones[i]);
-		// }
-
-		// File f = new File("Adyacencias.txt");
-		// try (Scanner sc = new Scanner(f)) {
-		// 	while (sc.hasNextLine()) {
-		// 		String linea = sc.nextLine();
-		// 		String[] data = linea.split(";");
-		// 		String adyacente1 = data[0];
-		// 		String adyacente2 = data[1];
-		// 		int distanciaReal = Integer.parseInt(data[2]);
-		// 		g.insertUndirectedEdge(get(g.vertices(), adyacente1), get(g.vertices(), adyacente2), distanciaReal);
-
-		// 	}
-		// } catch (Exception e) {
-		// 	e.printStackTrace();
-		// }
+//		File f = new File("Adyacencias.txt");
+//		try (Scanner sc = new Scanner(f)) {
+//			while (sc.hasNextLine()) {
+//				String linea = sc.nextLine();
+//				String[] data = linea.split(";");
+//				String adyacente1 = data[0];
+//				String adyacente2 = data[1];
+//				int distanciaReal = Integer.parseInt(data[2]);
+//				g.insertUndirectedEdge(get(g.vertices(), adyacente1), get(g.vertices(), adyacente2), distanciaReal);
+//
+//			}
+//		} catch (Exception e) {
+//			e.printStackTrace();
+//		}
 	}
-
-	
 
 }
