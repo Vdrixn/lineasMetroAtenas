@@ -1,28 +1,25 @@
-package src.lineasMetroAtenas;
+package lineasMetroAtenas;
 
-public class Estacion{
-	public final String Estacion;
+public class Estacion {
+	public final String estacion;
 	public double gValor;
-	public double hValorMin;
+	public final double hValorMin;
 	public double fValor = 0;
-	public Estacion parent;
+	public trayecto[] adjacencies;
+	public estaciones parent;
 	public int linea;
 	public int CoorX, CoorY;
 	
 	public Estacion (String nombreEstacion, int linea, double hMin, int CoorX, int CoorY){
-		Estacion = nombreEstacion;
+		estacion = nombreEstacion;
 		this.linea = linea;
 		hValorMin = hMin;
 		this.CoorX = CoorX;
 		this.CoorY = CoorY;
 	}
 
-	public void sethMin(double hMin){
-		hValorMin = hMin;
-	}
-
 	public String getEstacion(){
-		return this.Estacion;
+		return this.estacion;
 	}
 
 	public double getDistancia(){
@@ -40,7 +37,7 @@ public class Estacion{
 	public int getCoorY(){
 		return  this.CoorY;
 	}
-
+	
 	public String toString(){
 		return this.getEstacion() + ", " + this.getLinea() + ", " + this.getDistancia() + ", " + this.getCoorX() + this.getCoorY();
 	}
