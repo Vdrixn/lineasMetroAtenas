@@ -23,7 +23,7 @@ public class lineasMetroAtenas {
 	public static Estacion[] listaEstaciones() throws FileNotFoundException, IOException {
 		Estacion[] res = new Estacion[54];
 		String linea;
-		FileReader f = new FileReader(new File("C:\\Users\\ruben\\OneDrive\\Documentos\\Universidad\\Quinto cuatri\\IA\\lineasMetroAtenas\\src\\datos\\Estaciones.txt")); 
+		FileReader f = new FileReader(new File("src/lineasMetroAtenas/Data/Estaciones.txt")); 
         BufferedReader b = new BufferedReader(f);
 		int i = 0;
 		while((linea = b.readLine()) != null){
