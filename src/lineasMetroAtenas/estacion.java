@@ -1,16 +1,16 @@
 package lineasMetroAtenas;
 
-public class estaciones {
+public class estacion{
 	public final String estacion;
 	public double gValor;
 	public final double hValorMin;
 	public double fValor = 0;
 	public trayecto[] adjacencies;
-	public estaciones parent;
+	public estacion parent;
 	public int linea;
 	public int CoorX, CoorY;
 	
-	public estaciones (String nombreEstacion, int linea, double hMin, int CoorX, int CoorY){
+	public estacion (String nombreEstacion, int linea, double hMin, int CoorX, int CoorY){
 		estacion = nombreEstacion;
 		this.linea = linea;
 		hValorMin = hMin;
@@ -20,6 +20,7 @@ public class estaciones {
 
 	public String getEstacion(){
 		return this.estacion;
+		linea =8;
 	}
 
 	public double getDistancia(){
