@@ -63,7 +63,7 @@ public class lineasMetroAtenas {
 		Estacion[] Estaciones=listaEstaciones();
 		
 		for(int i=0;i<Estaciones.length;i++) {
-			// g.insertVertex(Estaciones[i]);
+			g.insertVertex(Estaciones[i]);
 		}
 		
 		File f=new File("Adyacencias.txt");
