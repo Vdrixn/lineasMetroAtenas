@@ -38,6 +38,6 @@ public class Estacion {
 	}
 	
 	public String toString(){
-		return this.getEstacion() + ", " + this.getLinea() + ", " + this.getDistancia() + ", " + this.getCoorX() + this.getCoorY();
+		return this.getEstacion() + ", " + this.getLinea() + ", " + this.getDistancia() + ", " + this.getCoorX() + ", "+ this.getCoorY();
 	}
 }

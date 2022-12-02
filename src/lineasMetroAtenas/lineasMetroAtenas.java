@@ -2,16 +2,11 @@ package lineasMetroAtenas;
 
 import java.io.BufferedReader;
 import java.io.File;
-import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
-import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.Iterator;
-import java.util.Scanner;
-
-import es.upm.aedlib.graph.Graph;
 import es.upm.aedlib.graph.UndirectedAdjacencyListGraph;
 import es.upm.aedlib.graph.UndirectedGraph;
 import es.upm.aedlib.graph.Vertex;
@@ -132,28 +127,47 @@ public class lineasMetroAtenas {
 		System.out.println(listaEstaciones);
 		UndirectedGraph<Estacion, Integer> g = new UndirectedAdjacencyListGraph<Estacion, Integer>();
 		Estacion[] estaciones = listaEstaciones();
+<<<<<<< HEAD
 //		for(int i=0; i<estaciones.length;i++){
 //			System.out.println(estaciones[i].toString());
 //		}
 		
+=======
+>>>>>>> 74dd6b57b7b6e63e21eeece1a34fbd26bdfadaea
 		for (int i = 0; i < estaciones.length; i++) {
 			g.insertVertex(estaciones[i]);
 		}
 
+<<<<<<< HEAD
 		FileReader f = new FileReader(new File("src/datos/Adyacencias.txt"));
 		BufferedReader b = new BufferedReader(f);
 		String linea;
 			while ((linea = b.readLine()) != null ) {
+=======
+		FileReader f = new FileReader(new File("lineasMetroAtenas/Data/Adyacencias.txt")); 
+		try (BufferedReader b = new BufferedReader(f);) {
+			String linea;
+			while ((linea = b.readLine())!=null) {
+>>>>>>> 74dd6b57b7b6e63e21eeece1a34fbd26bdfadaea
 				String[] data = linea.split(";");
 				String adyacente1 = data[0];
 				String adyacente2 = data[1];
 				int distanciaReal = Integer.parseInt(data[2]);
+<<<<<<< HEAD
 				g.insertUndirectedEdge(get(g.vertices(),adyacente1),get(g.vertices(),adyacente2), distanciaReal);
 
 			}
 		b.close();
 		
 		System.out.println(g.toString());
+=======
+				g.insertUndirectedEdge(get(g.vertices(), adyacente1), get(g.vertices(), adyacente2), distanciaReal);
+
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+>>>>>>> 74dd6b57b7b6e63e21eeece1a34fbd26bdfadaea
 	}
 
 }
