@@ -83,7 +83,7 @@ public class lineasMetroAtenas {
 			g.insertVertex(estaciones[i]);
 		}
 
-		FileReader f = new FileReader(new File("src/lineasMetroAtenas/Data/Adyacencias.txt")); 
+		FileReader f = new FileReader(new File("lineasMetroAtenas/Data/Adyacencias.txt")); 
 		try (BufferedReader b = new BufferedReader(f);) {
 			String linea;
 			while ((linea = b.readLine())!=null) {
