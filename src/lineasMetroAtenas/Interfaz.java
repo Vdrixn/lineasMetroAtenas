@@ -32,7 +32,7 @@ public class Interfaz extends JFrame implements ActionListener {
 	private ImageIcon lineas = new ImageIcon(getClass().getResource("/Imagenes/punto.png"));
 	private JLabel planoFondo;
 
-	private javax.swing.JComboBox<String> jComboBoxOrigen;
+	private javax.swing.JComboBox<String> jComboBoxSalida;
 	private javax.swing.JComboBox<String> jComboBoxDestino;
 
 	public String estacionO, estacionD;
@@ -42,7 +42,7 @@ public class Interfaz extends JFrame implements ActionListener {
 
 
 	JTextField tiempoViaje;
-	JTextField numeroTrasbordos;
+	JTextField numeroTransbordos;
 	JTextPane recorrido;
 	JScrollPane scrollpanel;
 	JPanel panel;
@@ -83,10 +83,10 @@ public class Interfaz extends JFrame implements ActionListener {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		jComboBoxOrigen = new javax.swing.JComboBox<>();
-		jComboBoxOrigen.setBounds(630, 30, 150, 30);
-		jComboBoxOrigen.setModel(new javax.swing.DefaultComboBoxModel<>(listaEstaciones));
-		panel.add(jComboBoxOrigen);
+		jComboBoxSalida = new javax.swing.JComboBox<>();
+		jComboBoxSalida.setBounds(630, 30, 150, 30);
+		jComboBoxSalida.setModel(new javax.swing.DefaultComboBoxModel<>(listaEstaciones));
+		panel.add(jComboBoxSalida);
 		// jComboBoxOrigen.addActionListener(this);
 
 		// Literal de estaci�n destino
@@ -129,10 +129,10 @@ public class Interfaz extends JFrame implements ActionListener {
 		label6.setBounds(630, 310, size6.width, size6.height);
 
 		// Resultado de numero de trasbordos
-		numeroTrasbordos = new JTextField();
-		numeroTrasbordos.setBounds(630, 330, 150, 30);
-		numeroTrasbordos.setEditable(false);
-		panel.add(numeroTrasbordos);
+		numeroTransbordos = new JTextField();
+		numeroTransbordos.setBounds(630, 330, 150, 30);
+		numeroTransbordos.setEditable(false);
+		panel.add(numeroTransbordos);
 
 		// Literal de estaciones recorridas
 		JLabel label7 = new JLabel("Recorrido:");
@@ -156,5 +156,83 @@ public class Interfaz extends JFrame implements ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent arg0) {
 		// TODO Auto-generated method stub
+		JLabel picLabel[] = new JLabel[54];
+		for(int i=0; i<54;i++) picLabel[i] = null;
+		
+		repaint();
+		planoFondo.removeAll();
+		
+		String EstacionSalida = (String) jComboBoxSalida.getSelectedItem();
+		String EstacionDestino = (String) jComboBoxDestino.getSelectedItem();
+		
+		Recorrido reco = new Recorrido();
+		
+		reco = lineasMetroAtenas.ProcesaPeticion(EstacionSalida, EstacionDestino);
+		
+		String transbordos = Integer.toString((int)reco.trasbordos);
+		String recoFinal = "";
+		
+		recorrido.setText(recoFinal);
+		numeroTransbordos.setText(transbordos);
+		StyledDocument doc = recorrido.getStyledDocument();
+		Style estilo = recorrido.addStyle("Soy un estilo", null);
+		
+		Estacion estacion;
+		int linea;
+		Color color = Color.black;
+		int i = 0;
+		
+		while(reco.recorridoEstaciones[i] != null) {
+			if(i>0) {
+				StyleConstants.setForeground(estilo, color);
+				try {
+					doc.insertString(doc.getLength(), "\n", estilo);
+				} catch(BadLocationException e) {}
+			}
+			estacion = lineasMetroAtenas.buscarEstacion(reco.recorridoEstaciones[i]);
+			linea = estacion.getLinea();
+			
+			switch(linea) {
+			case 1:
+				color = Color.green;
+				break;
+			case 2:
+				color = Color.red;
+				break;
+			case 3:
+				color = Color.blue;
+				break;
+			case 0:
+				color = Color.blue.green.red;
+				break;
+			}
+		
+		StyleConstants.setForeground(estilo, color);
+		try {
+			doc.insertString(doc.getLength(), reco.recorridoEstaciones[i], estilo);
+		} catch(BadLocationException e) {}
+		i++;	
 	}
+	
+	this.getContentPane().add(scrollpanel).setBounds(630, 420, 150, 190);
+	scrollpanel.getViewport().setViewPosition(new Point(0,0));
+	
+	repaint();
+	
+	int j=0;
+	while(reco.recorridoEstaciones[j] != null) {
+		estacion = lineasMetroAtenas.buscarEstacion(reco.recorridoEstaciones[j]);
+		if(j==0) {
+			picLabel[j] = new JLabel(puntoSalida);
+		} else if(j==i-1) {
+			picLabel[j] = new JLabel(puntoDestino);
+		}else {
+			picLabel[j] = new JLabel(lineas);
+		}
+		picLabel[j].setBounds(estacion.getCoorX(), estacion.getCoorY(), 10, 30);
+		picLabel[j].setOpaque(false);
+		planoFondo.add(picLabel[j]);
+		j++;
+	}
+  }
 }
