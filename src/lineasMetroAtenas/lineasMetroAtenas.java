@@ -2,16 +2,11 @@ package lineasMetroAtenas;
 
 import java.io.BufferedReader;
 import java.io.File;
-import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
-import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.Iterator;
-import java.util.Scanner;
-
-import es.upm.aedlib.graph.Graph;
 import es.upm.aedlib.graph.UndirectedAdjacencyListGraph;
 import es.upm.aedlib.graph.UndirectedGraph;
 import es.upm.aedlib.graph.Vertex;
@@ -84,27 +79,24 @@ public class lineasMetroAtenas {
 		System.out.println(listaEstaciones);
 		UndirectedGraph<Estacion, Integer> g = new UndirectedAdjacencyListGraph<Estacion, Integer>();
 		Estacion[] estaciones = listaEstaciones();
-		for(int i=0; i<estaciones.length;i++){
-			System.out.println(estaciones[i].toString());
+		for (int i = 0; i < estaciones.length; i++) {
+			g.insertVertex(estaciones[i]);
 		}
-//		for (int i = 0; i < estaciones.length; i++) {
-//			g.insertVertex(estaciones[i]);
-//		}
 
-//		File f = new File("Adyacencias.txt");
-//		try (Scanner sc = new Scanner(f)) {
-//			while (sc.hasNextLine()) {
-//				String linea = sc.nextLine();
-//				String[] data = linea.split(";");
-//				String adyacente1 = data[0];
-//				String adyacente2 = data[1];
-//				int distanciaReal = Integer.parseInt(data[2]);
-//				g.insertUndirectedEdge(get(g.vertices(), adyacente1), get(g.vertices(), adyacente2), distanciaReal);
-//
-//			}
-//		} catch (Exception e) {
-//			e.printStackTrace();
-//		}
+		FileReader f = new FileReader(new File("src/lineasMetroAtenas/Data/Adyacencias.txt")); 
+		try (BufferedReader b = new BufferedReader(f);) {
+			String linea;
+			while ((linea = b.readLine())!=null) {
+				String[] data = linea.split(";");
+				String adyacente1 = data[0];
+				String adyacente2 = data[1];
+				int distanciaReal = Integer.parseInt(data[2]);
+				g.insertUndirectedEdge(get(g.vertices(), adyacente1), get(g.vertices(), adyacente2), distanciaReal);
+
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 
 }
