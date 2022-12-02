@@ -143,8 +143,8 @@ public class lineasMetroAtenas {
 				String adyacente1 = data[0];
 				String adyacente2 = data[1];
 				int distanciaReal = Integer.parseInt(data[2]);
-				g.insertUndirectedEdge(get(g.vertices(),adyacente1),get(g.vertices(),adyacente2), distanciaReal);
-
+				g.insertUndirectedEdge(get(g.vertices(), adyacente1), get(g.vertices(), adyacente2), distanciaReal);
+				System.out.println(g.edges().toString());
 			}
 		b.close();
 		
