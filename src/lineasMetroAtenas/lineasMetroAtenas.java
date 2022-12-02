@@ -26,7 +26,7 @@ public class lineasMetroAtenas {
 	public static Estacion[] listaEstaciones() throws FileNotFoundException, IOException {
 		Estacion[] res = new Estacion[54];
 		String linea;
-		FileReader f = new FileReader(new File("src/datos/Estaciones.txt")); 
+		FileReader f = new FileReader(new File("src/lineasMetroAtenas/datos/Estaciones.txt")); 
         BufferedReader b = new BufferedReader(f);
 		int i = 0;
 		while((linea = b.readLine()) != null){
@@ -127,47 +127,28 @@ public class lineasMetroAtenas {
 		System.out.println(listaEstaciones);
 		UndirectedGraph<Estacion, Integer> g = new UndirectedAdjacencyListGraph<Estacion, Integer>();
 		Estacion[] estaciones = listaEstaciones();
-<<<<<<< HEAD
 //		for(int i=0; i<estaciones.length;i++){
 //			System.out.println(estaciones[i].toString());
 //		}
 		
-=======
->>>>>>> 74dd6b57b7b6e63e21eeece1a34fbd26bdfadaea
 		for (int i = 0; i < estaciones.length; i++) {
 			g.insertVertex(estaciones[i]);
 		}
 
-<<<<<<< HEAD
-		FileReader f = new FileReader(new File("src/datos/Adyacencias.txt"));
+		FileReader f = new FileReader(new File("src/lineasMetroAtenas/datos/Adyacencias.txt"));
 		BufferedReader b = new BufferedReader(f);
 		String linea;
 			while ((linea = b.readLine()) != null ) {
-=======
-		FileReader f = new FileReader(new File("lineasMetroAtenas/Data/Adyacencias.txt")); 
-		try (BufferedReader b = new BufferedReader(f);) {
-			String linea;
-			while ((linea = b.readLine())!=null) {
->>>>>>> 74dd6b57b7b6e63e21eeece1a34fbd26bdfadaea
 				String[] data = linea.split(";");
 				String adyacente1 = data[0];
 				String adyacente2 = data[1];
 				int distanciaReal = Integer.parseInt(data[2]);
-<<<<<<< HEAD
 				g.insertUndirectedEdge(get(g.vertices(),adyacente1),get(g.vertices(),adyacente2), distanciaReal);
 
 			}
 		b.close();
 		
 		System.out.println(g.toString());
-=======
-				g.insertUndirectedEdge(get(g.vertices(), adyacente1), get(g.vertices(), adyacente2), distanciaReal);
-
-			}
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
->>>>>>> 74dd6b57b7b6e63e21eeece1a34fbd26bdfadaea
 	}
 
 }
